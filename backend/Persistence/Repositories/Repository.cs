@@ -1,12 +1,11 @@
 ﻿using Domain.Primitives;
-using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories;
 
-internal abstract class Repository<TEntity> where TEntity : RootEntity
+internal abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : RootEntity
 {
     protected readonly ApplicationDbContext DbContext;
-
+    
     protected Repository(ApplicationDbContext dbContext)
     {
         DbContext = dbContext;
