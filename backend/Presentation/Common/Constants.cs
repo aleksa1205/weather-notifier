@@ -6,7 +6,7 @@ public static class Constants
     {
         public static class Users
         {
-            public const string BaseRoute = "api/Users";
+            public const string BaseRoute = "/users";
         }
     }
 }

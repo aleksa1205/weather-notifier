@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Presentation.Endpoints.Users;
 
-public static class UserController
+public static class UserHandlers
 {
     internal static async Task<IResult> GetById(ISender mediator, CancellationToken cancellationToken, Guid id) =>
         Results.Ok(await mediator.Send(new GetUserByIdQuery(id), cancellationToken));

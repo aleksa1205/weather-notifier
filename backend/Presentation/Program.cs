@@ -1,4 +1,5 @@
 using Application;
+using Carter;
 using Persistence;
 using Presentation.Common;
 
@@ -10,6 +11,7 @@ builder.Services.AddApplication();
 builder.Services.AddPersistence();
 
 builder.Services.AddSwaggerGen();
+builder.Services.AddCarter();
 
 var app = builder.Build();
 
@@ -21,5 +23,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.MapEndpoints();
+app.MapCarter();
 app.Run();
