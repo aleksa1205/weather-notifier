@@ -6,5 +6,5 @@ namespace Application.Common.Interfaces;
 public interface IUnitOfWork : IDisposable
 {
     public IUserRepository Users { get; }
-    void SaveChanges();
+    Task SaveChanges(CancellationToken cancellationToken = default);
 }

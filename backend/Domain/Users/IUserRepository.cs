@@ -1,8 +1,7 @@
-﻿namespace Domain.Users;
-public interface IUserRepository
+﻿using Domain.Primitives;
+
+namespace Domain.Users;
+public interface IUserRepository : IRepository<User>
 {
-    Task<User?> GetById(Guid id, CancellationToken cancellationToken = default);
     Task<User?> GetByEmail(string email, CancellationToken cancellationToken = default);
-    void Add(User user);
-    void Delete(User user);
 }

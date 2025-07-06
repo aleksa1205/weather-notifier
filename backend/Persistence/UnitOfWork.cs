@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces;
-using Domain.Primitives;
 using Domain.Users;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,9 +15,9 @@ public class UnitOfWork : IUnitOfWork
         _serviceProvider = serviceProvider;
     }
     
-    public IUserRepository  Users => _serviceProvider.GetRequiredService<IUserRepository>();
+    public IUserRepository Users => _serviceProvider.GetRequiredService<IUserRepository>();
 
-    public void SaveChanges() => _dbContext.SaveChanges();
+    public async Task SaveChanges(CancellationToken cancellation) => await _dbContext.SaveChangesAsync(cancellation);
 
     public void Dispose() => _dbContext.Dispose();
 }

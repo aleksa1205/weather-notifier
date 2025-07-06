@@ -5,7 +5,7 @@ using Application.Features.Users.Errors;
 using Domain.Users;
 using MediatR;
 
-namespace Application.Features.Users.Queries.ById;
+namespace Application.Features.Users.Queries.GetById;
 
 public class GetUserByIdQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetUserByIdQuery, UserDto>
 {
