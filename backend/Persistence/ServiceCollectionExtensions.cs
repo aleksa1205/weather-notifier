@@ -24,6 +24,6 @@ public static class ServiceCollectionExtensions
     {
         return services
             .AddRepositories()
-            .AddDatabase(); return services.AddRepositories();
+            .AddDatabase();
     }
 }

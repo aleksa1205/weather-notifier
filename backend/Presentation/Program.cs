@@ -1,5 +1,6 @@
 using Application;
 using Persistence;
+using Presentation.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
@@ -20,4 +21,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapEndpoints();
 app.Run();
