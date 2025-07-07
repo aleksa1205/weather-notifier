@@ -1,7 +1,7 @@
 ﻿using Application.Features.Users.Dtos;
 using Domain.Users;
 
-namespace Application.Common.Mappings;
+namespace Application.Mappings;
 
 public static class UserMappings
 {

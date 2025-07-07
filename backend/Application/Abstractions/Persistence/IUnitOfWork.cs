@@ -1,7 +1,7 @@
 ﻿using Domain.Primitives;
 using Domain.Users;
 
-namespace Application.Common.Interfaces;
+namespace Application.Abstractions.Persistence;
 
 public interface IUnitOfWork : IDisposable
 {

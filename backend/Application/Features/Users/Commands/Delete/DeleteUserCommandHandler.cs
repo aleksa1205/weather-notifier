@@ -1,4 +1,4 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Abstractions.Persistence;
 using Application.Features.Users.Errors;
 using MediatR;
 

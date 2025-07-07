@@ -1,10 +1,10 @@
-using Application.Common.Interfaces;
+using Application.Abstractions.Persistence;
 using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Repositories;
 
-namespace Persistence;
+namespace Persistence.DependencyInjection;
 
 public static class ServiceCollectionExtensions
 {

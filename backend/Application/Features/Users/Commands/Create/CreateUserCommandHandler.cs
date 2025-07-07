@@ -1,5 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Common.Mappings;
+﻿using Application.Abstractions.Persistence;
+using Application.Mappings;
 using Application.Features.Users.Dtos;
 using MediatR;
 

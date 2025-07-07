@@ -1,14 +1,14 @@
-using Application;
+using Application.DependencyInjection;
 using Carter;
-using Persistence;
-using Presentation.Common;
+using Persistence.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 //connecting layers
-builder.Services.AddApplication();
-builder.Services.AddPersistence();
+builder.Services
+    .AddApplication()
+    .AddPersistence();
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddCarter();

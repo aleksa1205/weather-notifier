@@ -8,6 +8,14 @@
     <PackageReference Include="MediatR" Version="13.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Abstraction\Messaging\ICommand.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstractions\CQS\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
