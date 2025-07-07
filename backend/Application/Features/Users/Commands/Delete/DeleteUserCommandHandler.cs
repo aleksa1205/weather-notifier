@@ -1,19 +1,21 @@
-﻿using Application.Abstractions.Persistence;
+﻿using Application.Abstractions.CQS;
+using Application.Abstractions.Persistence;
 using Application.Features.Users.Errors;
+using FluentResults;
 using MediatR;
 
 namespace Application.Features.Users.Commands.Delete;
 
-public class DeleteUserCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<DeleteUserCommand, Unit>
+public class DeleteUserCommandHandler(IUnitOfWork unitOfWork) : ICommandHandler<DeleteUserCommand, Unit>
 {
-    public async Task<Unit> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Unit>> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
         var user = await unitOfWork.Users.GetById(request.Id, cancellationToken);
         if (user is null)
-            throw new UserNotFoundException(request.Id);
+            return Result.Fail<Unit>(new UserNotFoundError(request.Id));
         
         unitOfWork.Users.Delete(user);
         await unitOfWork.SaveChanges(cancellationToken);
-        return Unit.Value;
+        return Result.Ok(Unit.Value);
     }
 }

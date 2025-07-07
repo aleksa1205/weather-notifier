@@ -4,7 +4,6 @@ using Presentation.Extensions;
 
 namespace Presentation.Endpoints.Users;
 
-//add response types/result pattern
 public class UsersModule : CarterModule
 {
     public UsersModule() : base(Constants.Routes.Users.BaseRoute) {}
@@ -12,10 +11,19 @@ public class UsersModule : CarterModule
     public override void AddRoutes(IEndpointRouteBuilder app)
     {
         app.MapGet("/{id}", UserHandlers.GetById)
+            .ProducesBasicResponse()
             .ProducesNotFound();
 
-        app.MapGet("/by-email/{email}", UserHandlers.GetByEmail);
-        app.MapPost("/", UserHandlers.Create);
-        app.MapDelete("/{id}", UserHandlers.Delete);
+        app.MapGet("/by-email/{email}", UserHandlers.GetByEmail)
+            .ProducesBasicResponse()
+            .ProducesNotFound();
+
+        app.MapPost("/", UserHandlers.Create)
+            .ProducesBasicResponse()
+            .ProducesConflict();
+
+        app.MapDelete("/{id}", UserHandlers.Delete)
+            .ProducesBasicResponse()
+            .ProducesNotFound();
     }
 }
