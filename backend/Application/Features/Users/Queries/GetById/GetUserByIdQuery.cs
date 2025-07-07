@@ -1,5 +1,5 @@
-﻿using Application.Features.Users.Dtos;
-using MediatR;
+﻿using Application.Abstractions.CQS;
+using Application.Features.Users.Dtos;
 
 namespace Application.Features.Users.Queries.GetById;
-public record GetUserByIdQuery(Guid Id) : IRequest<UserDto>;
+public record GetUserByIdQuery(Guid Id) : IQuery<UserDto>;

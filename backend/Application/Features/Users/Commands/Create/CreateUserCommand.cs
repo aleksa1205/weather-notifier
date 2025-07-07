@@ -1,4 +1,5 @@
 ﻿using Application.Features.Users.Dtos;
+using FluentResults;
 using MediatR;
 
 namespace Application.Features.Users.Commands.Create;

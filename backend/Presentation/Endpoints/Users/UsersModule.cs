@@ -1,5 +1,6 @@
 ﻿using Carter;
 using Presentation.Common;
+using Presentation.Extensions;
 
 namespace Presentation.Endpoints.Users;
 
@@ -10,7 +11,9 @@ public class UsersModule : CarterModule
 
     public override void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/{id}", UserHandlers.GetById);
+        app.MapGet("/{id}", UserHandlers.GetById)
+            .ProducesNotFound();
+
         app.MapGet("/by-email/{email}", UserHandlers.GetByEmail);
         app.MapPost("/", UserHandlers.Create);
         app.MapDelete("/{id}", UserHandlers.Delete);

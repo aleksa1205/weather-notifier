@@ -2,6 +2,7 @@
 using Application.Mappings;
 using Application.Features.Users.Dtos;
 using MediatR;
+using FluentResults;
 
 namespace Application.Features.Users.Commands.Create;
 
