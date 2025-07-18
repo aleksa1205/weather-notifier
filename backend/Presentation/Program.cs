@@ -5,13 +5,13 @@ using Persistence.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
-//connecting layers
 builder.Services
     .AddApplication()
-    .AddPersistence();
+    .AddPersistence(builder.Configuration);
 
-builder.Services.AddSwaggerGen();
-builder.Services.AddCarter();
+builder.Services
+    .AddSwaggerGen()
+    .AddCarter();
 
 var app = builder.Build();
 
